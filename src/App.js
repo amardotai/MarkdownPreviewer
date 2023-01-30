@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-
+import $ from 'jquery';
+import Text from './Components/Text';
+import rules from "./parser";
+import React,{ useState } from 'react';
 function App() {
+  const [val,setVal] = useState("");
+  const [res,steRes] = useState("");
+  
+  const markdownParser = (s)=>{
+    for(let i=0;i<rules.length;i++){
+      s = s.replace(rules[i][0],rules[i][1]);
+    }
+    steRes(s);
+  }
+
+  $("#preview").html(res);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Text id="editor"  value={val}  onChange={e => {
+        setVal(e.target.value);
+        markdownParser(e.target.value);
+      }}/>
+      <div id="preview"></div>
     </div>
   );
 }
