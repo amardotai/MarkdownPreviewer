@@ -18,7 +18,7 @@ const colors = [
 let i = 0;
 setInterval(()=>{
   document.documentElement.style.setProperty('--theme',colors[i]);
-  i = (i+1)%10;},4000);
+  i = (i+1)%10;},8000);
 
 
 // If you want to start measuring performance in your app, pass a function
