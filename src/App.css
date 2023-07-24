@@ -1,5 +1,5 @@
 :root{
-  --theme:white;
+  --theme:#3d7475;
 }
 *{
   margin:0;
@@ -8,9 +8,11 @@
 body{
   background-color: var(--theme);
   transition: 2000ms ease-in-out ;
+
+  
 }
 .App{
-  background-color: var(--theme);
+  /* background-color: var(--theme); */
   position: absolute;
   top: 15vh;
   display: flex;
@@ -39,3 +41,5 @@ body{
   border-radius: 1.2rem;
   padding: 0.5rem;
 }
+
+
